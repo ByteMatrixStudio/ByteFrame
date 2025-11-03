@@ -5,8 +5,8 @@
 #include <raylib.h>
 #include <raymath.h>
 
-#define WIDTH 200
-#define HEIGHT 200
+#define WIDTH 800
+#define HEIGHT 600
 
 typedef struct {
   size_t   width;
@@ -33,7 +33,7 @@ static inline uint32_t rd_color_to_uint32(rd_color col){
 }
 
 static inline rd_color uint32_to_rd_color(uint32_t rgba){
-  rd_color color = {.r=(rgba >> 16), .g=(rgba >> 8), .b=(rgba >> 0)};
+  rd_color color = {.a=(rgba >> 24), .r=(rgba >> 16), .g=(rgba >> 8), .b=(rgba >> 0)};
   return color;
 }
 
@@ -85,24 +85,24 @@ void rd_canvas_to_ppm(rd_canvas *c, const char *filename){
 
 int main(void){
   rd_canvas canva = {0};
-  rd_init_canvas(&canva, 200, 200);
+  rd_init_canvas(&canva, WIDTH, HEIGHT);
   InitWindow(WIDTH, HEIGHT, "hello from raylib");
 
   Image img = {.data=canva.pixels, .width=WIDTH, .height=HEIGHT, .mipmaps=1, .format=PIXELFORMAT_UNCOMPRESSED_R8G8B8A8};
   Texture2D tex = LoadTextureFromImage(img);
-
+  Vector2 rec1 = {.x=50, .y=20};
+  
+  Vector2 rec2 = {.x=10, .y=30};
   while (!WindowShouldClose()){
+    rec1 = Vector2Add(rec1, (Vector2){1.0f, 0.0f});
+    rec2 = Vector2Add(rec2, (Vector2){0.5f, 0.2f});    
+
+    rd_fill_background(&canva, rd_grey);
+    rd_draw_rect(&canva, 120, 130, rec1.x, rec1.y, rd_red);
+    rd_draw_rect(&canva, 140, 110, rec2.x, rec2.y, rd_green);
+
+    UpdateTexture(tex, canva.pixels);
     BeginDrawing();
-
-    Vector2 rec1 = {.x=50, .y=20};
-    Vector2Scale(rec1, 0.1);
-
-    Vector2 rec2 = {.x=10, .y=30};
-    Vector2Scale(rec2, 0.1);
-    
-    rd_fill_background(&canva, rd_white);
-    rd_draw_rect(&canva, rec1.x, rec1.y, 50, 100, rd_red);
-    rd_draw_rect(&canva, rec2.x, rec2.y, 20, 150, rd_green);
     DrawTexture(tex, 0, 0, WHITE);
     
     EndDrawing();
