@@ -3,7 +3,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <raylib.h>
-#include <raymath.h>
+#define MX_IMPLEMENTATION
+#include "mathx.h"
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -37,7 +38,7 @@ static inline rd_color uint32_to_rd_color(uint32_t rgba){
   return color;
 }
 
-void rd_init_canvas(rd_canvas *c, size_t w, size_t h){
+void rd_init_canvas(rd_canvas *c, size_t w, size_t h){ // TODO: is it a good idea to have a static default canvas? not sure.
   c->width  = w;
   c->height = h;
   c->pixels = malloc(sizeof(uint32_t) * h * w); 
@@ -90,13 +91,16 @@ int main(void){
 
   Image img = {.data=canva.pixels, .width=WIDTH, .height=HEIGHT, .mipmaps=1, .format=PIXELFORMAT_UNCOMPRESSED_R8G8B8A8};
   Texture2D tex = LoadTextureFromImage(img);
-  Vector2 rec1 = {.x=50, .y=20};
-  
-  Vector2 rec2 = {.x=10, .y=30};
-  while (!WindowShouldClose()){
-    rec1 = Vector2Add(rec1, (Vector2){1.0f, 0.0f});
-    rec2 = Vector2Add(rec2, (Vector2){0.5f, 0.2f});    
 
+  Vec2 rec1 = {.x=50, .y=20};
+  Vec2 rec2 = {.x=10, .y=30};
+
+  while (!WindowShouldClose()){
+    float dt = GetFrameTime();
+
+    Vec2transformP(&rec1, 20.0f*dt, -430.0f*dt); // TODO: could elimiate the need for dt (if we assume that we have a 60fps limit :mhm:)
+    Vec2transformP(&rec2, 40.0f*dt, 80.0f*dt);   
+    // SetTargetFPS(60);
     rd_fill_background(&canva, rd_grey);
     rd_draw_rect(&canva, 120, 130, rec1.x, rec1.y, rd_red);
     rd_draw_rect(&canva, 140, 110, rec2.x, rec2.y, rd_green);
@@ -104,7 +108,7 @@ int main(void){
     UpdateTexture(tex, canva.pixels);
     BeginDrawing();
     DrawTexture(tex, 0, 0, WHITE);
-    
+    DrawFPS(0, 10);
     EndDrawing();
   }
   CloseWindow();
