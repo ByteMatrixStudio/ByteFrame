@@ -1,68 +1,70 @@
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
+typedef unsigned long size_t;
 
+#ifdef MT_STRIP_PREFIX
 typedef struct {
   float x;
   float y;
 } Vec2;
+#else
+typedef struct {
+  float x;
+  float y;
+} mt_Vec2;
+#define Vec2 mt_Vec2
+#endif
 
-Vec2 Vec2add(Vec2 a, Vec2 b);
-Vec2 Vec2sub(Vec2 a, Vec2 b);
-Vec2 Vec2dot(Vec2 a, Vec2 b);
-Vec2 Vec2scale(Vec2 vec, float v);
-void Vec2scaleP(Vec2 *vec, float v);
-void Vec2transformP(Vec2 *vec, float x, float y);
-Vec2 Vec2norm(Vec2 v);
-void Vec2print(Vec2 v);
+Vec2 mt_Vec2add(Vec2 a, Vec2 b);
+Vec2 mt_Vec2sub(Vec2 a, Vec2 b);
+Vec2 mt_Vec2dot(Vec2 a, Vec2 b);
+Vec2 mt_Vec2scale(Vec2 vec, float v);
+void mt_Vec2scaleP(Vec2 *vec, float v);
+void mt_Vec2transformP(Vec2 *vec, float x, float y);
+Vec2 mt_Vec2norm(Vec2 v);
 double factorial(size_t n);
 float sqrtf(float num);
 float powf(float x, float power);
 double sin(double x);
 double cos(double x);
 
-#ifdef MX_IMPLEMENTATION
-Vec2 Vec2add(Vec2 a, Vec2 b){
+#ifdef MT_IMPLEMENTATION
+Vec2 mt_Vec2add(Vec2 a, Vec2 b){
   Vec2 result = {0};
   result.x += a.x+b.x;
   result.y += a.y+b.y;
   return result;
 }
 
-Vec2 Vec2sub(Vec2 a, Vec2 b){
+Vec2 mt_Vec2sub(Vec2 a, Vec2 b){
   Vec2 result = {0};
   result.x -= a.x+b.x;
   result.y -= a.y+b.y;
   return result;
 }
 
-Vec2 Vec2dot(Vec2 a, Vec2 b){
+Vec2 mt_Vec2dot(Vec2 a, Vec2 b){
   Vec2 result = {0};
   result.x += a.x*b.x;
   result.y += a.y*b.y;
   return result;
 }
 
-Vec2 Vec2scale(Vec2 vec, float v){
+Vec2 mt_Vec2scale(Vec2 vec, float v){
   Vec2 result = {0};
   result.x += vec.x*v;
   result.y += vec.y*v;
   return result;
 }
 
-void Vec2transformP(Vec2 *vec, float x, float y){
+void mt_Vec2transformP(Vec2 *vec, float x, float y){
   vec->x += x;
   vec->y -= y;
 }
 
-void Vec2scaleP(Vec2 *vec, float v){
+void mt_Vec2scaleP(Vec2 *vec, float v){
   vec->x += vec->x*v;
   vec->y += vec->y*v;
 }
 
-void Vec2print(Vec2 v){
-  printf("[%f, %f]\n", v.x, v.y);
-}
 
 double factorial(size_t n){
   float result = 1;
@@ -89,7 +91,7 @@ float powf(float x, float power){
   return result;
 }
 
-Vec2 Vec2norm(Vec2 v){
+Vec2 mt_Vec2norm(Vec2 v){
   Vec2 result = {0};
   float len = sqrtf(v.x*v.x + v.y*v.y);
   result.x = v.x/len;
@@ -120,12 +122,14 @@ double cos(double x){
   }
   return result;
 }
+#endif // MT_IMPLEMENTATION
 
-// int main(void){
-//   Vec2 vec1 = {3.0f, 10000.0f};
-//   Vec2 vec2 = {7.0f, 8.0f};
-//   Vec2 sum = Vec2norm(vec1);
-//   Vec2print(sum);
-//   return 0;
-// }
-#endif // MX_IMPLEMENTATION
+#ifdef MT_STRIP_PREFIX
+#define Vec2add        mt_Vec2add
+#define Vec2sub        mt_Vec2sub
+#define Vec2dot        mt_Vec2dot
+#define Vec2scale      mt_Vec2scale
+#define Vec2scaleP     mt_Vec2scaleP
+#define Vec2transformP mt_Vec2transformP
+#define Vec2norm       mt_Vec2norm
+#endif
