@@ -140,7 +140,7 @@ uint8_t rd_poll_key_terminal() {
 
 void rd_canvas_to_terminal(rd_canvas *c){
   printf("\n\033[H\033[J");
-  for (size_t j=0; j<c->height; j+=(int)c->height/20){ // the larger the canvas the worse the approximation is tested using 200x200
+  for (size_t j=0; j<c->height; j+=(int)c->height/20){ // these two values are "magical" they may not be the best
     for (size_t i=0; i<c->width; i+=(int)c->width/64){
       rd_color col = uint32_to_rd_color(c->pixels[j * c->width + i]);
       if (col.r ==  rd_white.r && col.g == rd_white.g && col.b == rd_white.b){
