@@ -1,0 +1,20 @@
+# Visual Studio stuff
+.vs/
+*.user
+*.suo
+*.log
+
+# Build output
+/x64/
+/x86/
+/Release/
+/Debug/
+/ipch/
+/out/
+/bin/
+/obj/
+
+# VS project user settings
+*.vcxproj.user
+*.opendb
+*.VC.db
