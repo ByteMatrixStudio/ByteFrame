@@ -4,7 +4,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>         
-
+//
 namespace bf {
 
     constexpr int GLYPH_W = 5;
