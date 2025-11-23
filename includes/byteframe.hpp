@@ -37,6 +37,8 @@ public:
   void drawPixel(size_t x, size_t y, Color color);
   void rd_canvas_to_ppm(const char *filename);
 
+  void drawDigit(int digit, int x, int y, int scale, Color col);
+  void drawNumber(int value, int x, int y, int scale, Color col);
   void drawEllipse(int cx, int cy, float rx, float ry, Color col);
   void drawCircle(int cx, int cy, float r, Color col);
   void drawVline(size_t start, size_t end, size_t x, size_t w, Color col);

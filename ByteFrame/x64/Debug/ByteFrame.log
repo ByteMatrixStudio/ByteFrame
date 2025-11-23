@@ -1,0 +1,52 @@
+﻿  byteframe.cpp
+K:\ByteFrame\byteframe.cpp(112,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(113,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(114,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(115,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(119,38): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(120,39): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(124,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+K:\ByteFrame\byteframe.cpp(125,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+K:\ByteFrame\byteframe.cpp(161,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(162,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrame\byteframe.cpp(164,16): error C7555: use of designated initializers requires at least '/std:c++20'
+K:\ByteFrame\byteframe.cpp(178,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  example.cpp
+K:\ByteFrame\byteframe.cpp(112,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(113,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(114,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(115,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(119,38): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(120,39): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(124,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(125,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(161,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(162,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(164,16): error C7555: use of designated initializers requires at least '/std:c++20'
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\byteframe.cpp(178,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  (compiling source file '../example.cpp')
+  
+K:\ByteFrame\example.cpp(11,9): error C7555: use of designated initializers requires at least '/std:c++20'
+  Generating Code...

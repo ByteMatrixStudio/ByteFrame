@@ -1,0 +1,2 @@
+K:\ByteFrame\ByteFrame\x64\Release\ByteFrame.vcxproj.Up2Date
+K:\ByteFrameFork\ByteFrame\ByteFrame\x64\Release\ByteFrame.vcxproj.Up2Date

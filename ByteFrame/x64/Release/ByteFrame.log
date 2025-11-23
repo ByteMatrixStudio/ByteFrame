@@ -1,0 +1,21 @@
+﻿  byteframe.cpp
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(194,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(195,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(196,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(197,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(203,18): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(205,19): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(208,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(209,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(233,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(234,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+K:\ByteFrameFork\ByteFrame\ByteFrame\byteframe.cpp(244,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  example.cpp
+  Generating code
+  149 of 154 functions (96.8%) were compiled, the rest were copied from previous compilation.
+    5 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ByteFrame.vcxproj -> K:\ByteFrameFork\ByteFrame\x64\Release\ByteFrame.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
