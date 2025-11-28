@@ -1,4 +1,4 @@
-all: libbyteframe.so libbyteframe.o libbyteframe.a example folders pong mandlebrot
+all: libbyteframe.so libbyteframe.o libbyteframe.a example folders pong mandlebrot snake
 
 
 libbyteframe.a: libbyteframe.o folders
@@ -23,3 +23,6 @@ example:
 
 mandlebrot: libbyteframe.a
 	g++ ./examples/mandlebrot.cpp -o mandlebrot -I./includes -L./lib -l:libbyteframe.a -lraylib -O3
+
+snake: libbyteframe.a
+	g++ ./examples/snake.cpp -o snake -I./includes -L./lib -l:libbyteframe.a -lraylib -O3
