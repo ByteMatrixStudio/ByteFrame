@@ -8,13 +8,18 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: builder
-      run: cc -o builder builder.c
-    - name: run builder
-      run: ./builder
+      - uses: actions/checkout@v4
 
+      - name: Install raylib and dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libraylib-dev
+
+      - name: Build program
+        run: cc -o builder builder.c -lraylib -lm -lpthread -ldl -lrt -lGL -lX11
+
+      - name: Run builder
+        run: ./builder
